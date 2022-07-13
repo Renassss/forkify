@@ -80,10 +80,8 @@ const controlBookmarks = function () {
 
 const controlAddRecipe = async function (newRecipe) {
   try {
-    // addRecipeView.renderSpinner();
     await model.uploadRecipe(newRecipe);
     recipeView.render(model.state.recipe);
-    // addRecipeView.renderMessage();
     addRecipeView.successMessage();
     bookmarksView.render(model.state.bookmarks);
     window.history.pushState(null, '', `#${model.state.recipe.id}`);
@@ -105,5 +103,6 @@ const init = () => {
   searchView.addHandlerSearch(controlSearchResults);
   paginationView.addHandlerClick(controlPagination);
   addRecipeView.addHandlerUpload(controlAddRecipe);
+  console.log('welcome to the application');
 };
 init();
